@@ -1,0 +1,4 @@
+include 'ntrip-tools'
+
+rootProject.name = 'ntrip-tools'
+

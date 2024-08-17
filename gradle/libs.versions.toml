@@ -1,0 +1,18 @@
+[versions]
+jackson = "2.17.2"
+slf4j = "2.0.16"
+
+[libraries]
+slf4j-api = { module = "org.slf4j:slf4j-api", version.ref = "slf4j" }
+slf4j-reload4j = { module = "org.slf4j:slf4j-reload4j", version.ref = "slf4j" }
+
+soup = 'org.jsoup:jsoup:1.18.1'
+
+jackson-databind = { module = "com.fasterxml.jackson.core:jackson-databind", version.ref = "jackson" }
+
+junit = "junit:junit:4.13.2"
+
+[plugins]
+versions = "com.github.ben-manes.versions:0.51.0"
+dependencycheck = "org.owasp.dependencycheck:8.4.3"
+

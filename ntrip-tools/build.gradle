@@ -1,0 +1,11 @@
+apply plugin: "application"
+
+application {
+    mainClass = 'nl.bertriksikken.StreamTableParserApp'
+}
+
+dependencies {
+    implementation libs.slf4j.reload4j
+    implementation libs.soup
+    implementation libs.jackson.databind
+}
