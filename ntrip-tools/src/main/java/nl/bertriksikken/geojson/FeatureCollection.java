@@ -1,7 +1,5 @@
 package nl.bertriksikken.geojson;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.ArrayList;
@@ -57,44 +55,4 @@ public final class FeatureCollection extends GeoJsonObject {
         }
     }
 
-    public static abstract class GeoJsonGeometry extends GeoJsonObject {
-        private GeoJsonGeometry(EGeometry geometry) {
-            super(geometry.id);
-        }
-    }
-
-    @JsonAutoDetect(getterVisibility = Visibility.NONE)
-    public static final class PointGeometry extends GeoJsonGeometry {
-        @JsonProperty("coordinates")
-        private final double[] coordinates;
-
-        // jackson no-arg constructor
-        @SuppressWarnings("unused")
-        private PointGeometry() {
-            this(Double.NaN, Double.NaN);
-        }
-
-        public PointGeometry(double latitude, double longitude) {
-            super(EGeometry.POINT);
-            coordinates = new double[]{longitude, latitude};
-        }
-
-        public double getLatitude() {
-            return coordinates[1];
-        }
-
-        public double getLongitude() {
-            return coordinates[0];
-        }
-    }
-
-    enum EGeometry {
-        POINT("Point");
-
-        private final String id;
-
-        EGeometry(String id) {
-            this.id = id;
-        }
-    }
 }

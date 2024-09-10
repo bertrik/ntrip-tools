@@ -1,6 +1,7 @@
 package nl.bertriksikken;
 
 import nl.bertriksikken.geojson.FeatureCollection;
+import nl.bertriksikken.geojson.GeoJsonGeometry;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -56,7 +57,7 @@ public final class StreamTableParser {
 
     private FeatureCollection.Feature parseFeature(String position, Map<String, String> properties) {
         double[] coord = parseDegrees(position);
-        FeatureCollection.PointGeometry geometry = new FeatureCollection.PointGeometry(coord[0], coord[1]);
+        GeoJsonGeometry.Point geometry = new GeoJsonGeometry.Point(coord[0], coord[1]);
         FeatureCollection.Feature feature = new FeatureCollection.Feature(geometry);
         properties.forEach(feature::addProperty);
         return feature;
