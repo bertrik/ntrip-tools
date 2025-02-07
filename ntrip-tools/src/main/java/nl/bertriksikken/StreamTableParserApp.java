@@ -3,6 +3,7 @@ package nl.bertriksikken;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import nl.bertriksikken.geojson.FeatureCollection;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.time.Duration;
@@ -21,6 +22,8 @@ public final class StreamTableParserApp {
 
         ObjectMapper mapper = new ObjectMapper();
         mapper.writerWithDefaultPrettyPrinter().writeValue(System.out, geojson);
+        File file = new File("streamtable.geojson");
+        mapper.writerWithDefaultPrettyPrinter().writeValue(file, geojson);
     }
 
     private static void printUsage(String appName) {
