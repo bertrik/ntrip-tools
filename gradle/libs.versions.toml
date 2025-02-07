@@ -2,7 +2,7 @@
 jackson = "2.18.2"
 slf4j = "2.0.16"
 errorprone = "2.36.0"
-junit = "5.11.3"
+junit = "5.11.4"
 soup = "1.18.3"
 
 [libraries]
@@ -20,6 +20,6 @@ junit-jupiter = { module = "org.junit.jupiter:junit-jupiter" }
 junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher" }
 
 [plugins]
-versions = "com.github.ben-manes.versions:0.51.0"
+versions = "com.github.ben-manes.versions:0.52.0"
 dependencycheck = "org.owasp.dependencycheck:8.4.3"
 errorprone = "net.ltgt.errorprone:4.1.0"
