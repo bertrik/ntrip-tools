@@ -1,9 +1,9 @@
 [versions]
-jackson = "2.18.2"
-slf4j = "2.0.16"
+jackson = "2.18.3"
+slf4j = "2.0.17"
 errorprone = "2.36.0"
-junit = "5.11.4"
-soup = "1.18.3"
+junit = "5.12.0"
+soup = "1.19.1"
 
 [libraries]
 errorprone_annotations = { module = "com.google.errorprone:error_prone_annotations", version.ref = "errorprone" }
@@ -14,6 +14,7 @@ slf4j-reload4j = { module = "org.slf4j:slf4j-reload4j", version.ref = "slf4j" }
 soup = { module = 'org.jsoup:jsoup', version.ref = "soup" }
 
 jackson-databind = { module = "com.fasterxml.jackson.core:jackson-databind", version.ref = "jackson" }
+jackson-format-csv = { module = "com.fasterxml.jackson.dataformat:jackson-dataformat-csv", version.ref = "jackson" }
 
 junit-bom = { module = "org.junit:junit-bom", version.ref = "junit" }
 junit-jupiter = { module = "org.junit.jupiter:junit-jupiter" }
