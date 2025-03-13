@@ -1,4 +1,5 @@
 import com.fasterxml.jackson.databind.ObjectMapper;
+import nl.bertriksikken.GeojsonCsvWriter;
 import nl.bertriksikken.StreamTableParser;
 import nl.bertriksikken.geojson.FeatureCollection;
 import org.junit.jupiter.api.Test;
@@ -19,6 +20,9 @@ public final class StreamTableParserTest {
             FeatureCollection geojson = parser.parseStream(is, StandardCharsets.UTF_8);
             File file = new File("output.json");
             mapper.writerWithDefaultPrettyPrinter().writeValue(file, geojson);
+
+            GeojsonCsvWriter writer = new GeojsonCsvWriter();
+            writer.write(geojson, new File("table.csv"));
         }
     }
 

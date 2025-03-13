@@ -8,4 +8,5 @@ dependencies {
     implementation libs.slf4j.reload4j
     implementation libs.soup
     implementation libs.jackson.databind
+    implementation libs.jackson.format.csv
 }
