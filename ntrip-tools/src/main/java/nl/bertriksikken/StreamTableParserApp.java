@@ -16,7 +16,7 @@ public final class StreamTableParserApp {
             return;
         }
 
-        URL url = new URL(args[0]);
+        URL url = new URL(args[0]); // typically https://ntrip.kadaster.nl/streamtable.htm
         StreamTableParser parser = new StreamTableParser();
         FeatureCollection geojson = parser.parseURL(url, Duration.ofSeconds(10));
 
