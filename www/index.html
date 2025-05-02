@@ -59,11 +59,14 @@
         map.addLayer(markers);
       }).catch(error => console.error("Error loading GeoJSON:", error));
 
-    function createMarker(feature, latlng) {
-      return L.circleMarker(latlng, {
-        radius: 15,
-        color: network2color(feature.properties.Network),
+    const streamIcon = L.icon({
+        iconUrl: 'stream.png',
+        iconSize: [32, 32],
+        iconAnchor: [16, 16]
       });
+
+    function createMarker(feature, latlng) {
+      return L.marker(latlng, { icon: streamIcon });
     }
 
     function network2color(network) {
