@@ -1,6 +1,7 @@
 package nl.bertriksikken;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
 import nl.bertriksikken.geojson.FeatureCollection;
 
 import java.io.File;
@@ -15,19 +16,35 @@ public final class StreamTableParserApp {
             printUsage("parse");
             return;
         }
-
         URL url = new URL(args[0]); // typically https://ntrip.kadaster.nl/streamtable.htm
-        StreamTableParser parser = new StreamTableParser();
-        FeatureCollection geojson = parser.parseURL(url, Duration.ofSeconds(10));
-
-        ObjectMapper mapper = new ObjectMapper();
-        mapper.writerWithDefaultPrettyPrinter().writeValue(System.out, geojson);
-        File file = new File("streamtable.geojson");
-        mapper.writerWithDefaultPrettyPrinter().writeValue(file, geojson);
+        StreamTableParserApp app = new StreamTableParserApp();
+        app.run(url, Duration.ofSeconds(10));
     }
 
     private static void printUsage(String appName) {
         System.err.println("Usage: " + appName + " <url>");
+    }
+
+    private FeatureCollection filterRTCM(FeatureCollection collection) {
+        FeatureCollection filtered = new FeatureCollection();
+        collection.getFeatures().stream()
+                .filter(f -> f.getProperties().get("Format").toString().contains("RTCM")).forEach(filtered::add);
+        return filtered;
+    }
+
+    private void run(URL url, Duration timeout) throws IOException {
+        StreamTableParser parser = new StreamTableParser();
+        FeatureCollection geojson = parser.parseURL(url, timeout);
+
+        ObjectMapper mapper = new ObjectMapper();
+        ObjectWriter writer = mapper.writerWithDefaultPrettyPrinter();
+
+        // entire table
+        writer.writeValue(new File("streamtable.geojson"), geojson);
+
+        // RTCM entries only
+        FeatureCollection filtered = filterRTCM(geojson);
+        writer.writeValue(new File("rtcm.geojson"), filtered);
     }
 
 }

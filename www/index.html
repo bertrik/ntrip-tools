@@ -48,7 +48,7 @@
     }).addTo(map);
 
     // Fetch GeoJSON data and add to the map
-    fetch('streamtable.geojson')
+    fetch('rtcm.geojson')
       .then(response => response.json())
       .then(data => {
         var geojsonLayer = L.geoJSON(data, {
