@@ -1,9 +1,9 @@
 [versions]
-jackson = "2.19.0"
+jackson = "2.19.1"
 slf4j = "2.0.17"
-errorprone = "2.38.0"
-junit = "5.12.2"
-soup = "1.20.1"
+errorprone = "2.40.0"
+junit = "5.13.3"
+soup = "1.21.1"
 
 [libraries]
 errorprone_annotations = { module = "com.google.errorprone:error_prone_annotations", version.ref = "errorprone" }
@@ -23,4 +23,4 @@ junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher
 [plugins]
 versions = "com.github.ben-manes.versions:0.52.0"
 dependencycheck = "org.owasp.dependencycheck:8.4.3"
-errorprone = "net.ltgt.errorprone:4.1.0"
+errorprone = "net.ltgt.errorprone:4.3.0"
