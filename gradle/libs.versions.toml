@@ -1,8 +1,8 @@
 [versions]
-jackson = "2.19.1"
+jackson = "2.19.2"
 slf4j = "2.0.17"
-errorprone = "2.40.0"
-junit = "5.13.3"
+errorprone = "2.41.0"
+junit = "5.13.4"
 soup = "1.21.1"
 
 [libraries]
