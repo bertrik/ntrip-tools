@@ -22,5 +22,4 @@ junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher
 
 [plugins]
 versions = "com.github.ben-manes.versions:0.54.0"
-dependencycheck = "org.owasp.dependencycheck:8.4.3"
 errorprone = "net.ltgt.errorprone:5.1.0"
